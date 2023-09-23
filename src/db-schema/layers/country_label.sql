@@ -3,7 +3,7 @@ CREATE TABLE country_label AS (
     SELECT topoint(geom) AS geom,
            name,
            name_fr,
-           adm0_a3, amd0_a3_fr, abbrev,
+           adm0_a3, adm0_a3_fr, abbrev,
            scalerank, labelrank,
            CASE WHEN tiny < 0 THEN 0 ELSE 1 END AS is_tiny
     FROM ne_10m_admin_0_countries_fra
