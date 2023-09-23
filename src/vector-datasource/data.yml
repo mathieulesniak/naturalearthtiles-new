@@ -173,6 +173,7 @@ Layer:
     description: ""
     fields:
       name: String
+      name_fr: String
       scalerank: Number
     properties:
       "buffer-size": 4
@@ -274,6 +275,7 @@ Layer:
       iso_a3: String
       labelrank: Number
       name: String
+      name_fr: String
       scalerank: Number
     properties:
       "buffer-size": 128
@@ -292,7 +294,7 @@ Layer:
       port: 5432
       srid: ""
       table: |-
-        ( SELECT topoint(geom) AS geom, name, scalerank, labelrank, postal
+        ( SELECT topoint(geom) AS geom, name, name_fr, scalerank, labelrank, postal
           FROM (
               SELECT * FROM state_label_z3 WHERE z(!scale_denominator!) BETWEEN 3 AND 4
               UNION ALL
@@ -307,6 +309,7 @@ Layer:
     description: ""
     fields:
       name: String
+      name_fr: String
     properties:
       "buffer-size": 128
     srs: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over
@@ -324,7 +327,7 @@ Layer:
       port: 5432
       srid: ""
       table: |-
-        ( SELECT topoint(geom) AS geom, name, scalerank, type
+        ( SELECT topoint(geom) AS geom, name, name_fr, scalerank, type
           FROM (
               SELECT * FROM marine_label_z2 WHERE z(!scale_denominator!) BETWEEN 2 AND 4
               UNION ALL
@@ -339,6 +342,7 @@ Layer:
     description: ""
     fields:
       name: String
+      name_fr: String
       scalerank: Number
       type: String
     properties:
@@ -358,7 +362,7 @@ Layer:
       port: 5432
       srid: ""
       table: |-
-        ( SELECT geom, scalerank, name
+        ( SELECT geom, scalerank, name, name_fr
           FROM (
               SELECT * FROM lake_label_z5 WHERE z(!scale_denominator!) >= 5
           ) AS lake_label
@@ -369,6 +373,7 @@ Layer:
     description: ""
     fields:
       name: String
+      name_fr: String
       scalerank: Number
     properties:
       "buffer-size": 128
@@ -387,7 +392,7 @@ Layer:
       port: 5432
       srid: ""
       table: |-
-        ( SELECT geom, scalerank, labelrank, name, pop_max as population
+        ( SELECT geom, scalerank, labelrank, name, name_fr, pop_max as population
           FROM (
               SELECT * FROM place_label_z3 WHERE z(!scale_denominator!) = 3
               UNION ALL
@@ -408,6 +413,7 @@ Layer:
     fields:
       labelrank: Number
       name: String
+      name_fr: String
       population: Number
       scalerank: Number
     properties:
@@ -447,6 +453,7 @@ Layer:
       iata_code: String
       location: String
       name: String
+      name_fr: String
       natlscale: Number
       ogc_fid: Number
       scalerank: Number

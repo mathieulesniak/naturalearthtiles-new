@@ -6,24 +6,24 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
 
-UPDATE ne_10m_admin_1_states_provinces
-SET name=fix_win1252_shp_encoding(name);
+-- UPDATE ne_10m_admin_1_states_provinces
+-- SET name=fix_win1252_shp_encoding(name);
 
-UPDATE ne_50m_admin_1_states_provinces
-SET name=fix_win1252_shp_encoding(name);
+-- UPDATE ne_50m_admin_1_states_provinces
+-- SET name=fix_win1252_shp_encoding(name);
 
 CREATE OR REPLACE VIEW state_label_z3 AS (
-    SELECT geom, name, scalerank, labelrank, postal
+    SELECT geom, name, name_fr scalerank, labelrank, postal
     FROM ne_50m_admin_1_states_provinces
 );
 
 CREATE OR REPLACE VIEW state_label_z5 AS (
-    SELECT geom, name, scalerank, labelrank, postal
+    SELECT geom, name, name_fr scalerank, labelrank, postal
     FROM ne_10m_admin_1_states_provinces
     WHERE scalerank <= 6
 );
 
 CREATE OR REPLACE VIEW state_label_z7 AS (
-    SELECT geom, name, scalerank, labelrank, postal
+    SELECT geom, name, name_fr, scalerank, labelrank, postal
     FROM ne_10m_admin_1_states_provinces
 );
