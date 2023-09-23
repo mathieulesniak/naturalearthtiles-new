@@ -14,14 +14,14 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 DROP VIEW state_label_z3;
 
 CREATE OR REPLACE VIEW state_label_z3 AS (
-    SELECT geom, name, name_fr scalerank, labelrank, postal
+    SELECT geom, name, name_fr, scalerank, labelrank, postal
     FROM ne_50m_admin_1_states_provinces
 );
 
 DROP VIEW state_label_z5;
 
 CREATE OR REPLACE VIEW state_label_z5 AS (
-    SELECT geom, name, name_fr scalerank, labelrank, postal
+    SELECT geom, name, name_fr, scalerank, labelrank, postal
     FROM ne_10m_admin_1_states_provinces
     WHERE scalerank <= 6
 );
