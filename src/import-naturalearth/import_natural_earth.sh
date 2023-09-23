@@ -9,7 +9,7 @@ readonly NE_PASSWORD=${NE_PASSWORD:-naturalearth}
 
 function import_natural_earth() {
     echo "Importing Natural Earth to PostGIS"
-    PGCLIENTENCODING=UTF8 ogr2ogr \
+    ogr2ogr \
     -progress \
     -f Postgresql \
     -s_srs EPSG:4326 \
