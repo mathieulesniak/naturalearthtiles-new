@@ -239,6 +239,7 @@ Layer:
       user: naturalearth
     description: Highway, major road, and ferry route lines
     fields:
+      name: String
       featureclass: String
       scalerank: Number
       type: String
